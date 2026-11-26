@@ -2,34 +2,28 @@ pipeline {
     agent any
 
     stages {
-
         stage('Git Checkout') {
             steps {
-                echo 'Checking out source code from GitHub'
-                git branch: 'main',
-                    url: 'https://github.com/Kowshikatamil-04/git-branching-practice.git'
+                echo 'Fetching source code from GitHub'
+                checkout scm
             }
         }
 
         stage('Build') {
             steps {
-                echo 'Build stage started'
-                echo 'Application build completed successfully'
+                echo 'Build stage completed'
             }
         }
 
         stage('Test') {
             steps {
-                echo 'Testing application...'
-                sh 'test 1 -eq 1'
-                echo 'Test passed successfully'
+                echo 'Test stage completed'
             }
         }
 
         stage('Deploy') {
             steps {
-                echo 'Deploying application...'
-                echo 'Deployment completed successfully'
+                echo 'Deployment stage completed'
             }
         }
     }
